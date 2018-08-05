@@ -26,7 +26,7 @@ public class WeatherSolarSystem  extends SolarSystem {
 
     /**
      * Checks if the planets collinear between them and the sun
-     * @param angles Angles in degrees of the system in specific day
+     * @param angles List of {@link Angle} in degrees of the system in specific day
      * @return true if planets are align with sun, false otherwise
      */
     private boolean arePlanetsAlignWithSun(List<Angle> angles) {
@@ -41,9 +41,11 @@ public class WeatherSolarSystem  extends SolarSystem {
     /**
      * Checks if planets coordinates are collinear in specific system status.
      *
-     * As days are discrete and planets are points in space, this method generates a line between
-     * the planet closest to the sun and the furthest one for actual day and next day.
-     * If the middle planet change side from this lines, then planets were align.
+     * As days are discrete and planets are points in space, this method generates
+     * a line {@link Line2D} between the planet closest to the sun and the furthest
+     * one for actual day and next day.
+     * If the middle planet change side from this lines, then planets were align
+     * See {@link Line2D#relativeCCW(Point2D)}.
      *
      * @param coordinatesToday Planets position for first day
      * @param coordinatesTomorrow Planets position for next day
@@ -62,7 +64,7 @@ public class WeatherSolarSystem  extends SolarSystem {
     /**
      * Get triangle formed by the 3 planets coordinates on a specific day
      * @param day number of days since start day
-     * @return triangle formed
+     * @return triangle formed. See {@link Triangle2D}
      */
     private Triangle2D getTriangle(int day) {
         return  new Triangle2D(getCoordinates(day));
@@ -72,7 +74,7 @@ public class WeatherSolarSystem  extends SolarSystem {
      * Checks if triangle formed by the planets coordinates has the sun inside.
      * Check @Triangle2D for specific method.
      *
-     * @param triangle triangle formed by the planets in the specific day
+     * @param triangle {@link Triangle2D} formed by the planets in the specific day
      * @return true if sun is in the middle of the triangle, false otherwise
      */
     private boolean arePlanetsInATringleWithSun(Triangle2D triangle) {
@@ -85,7 +87,7 @@ public class WeatherSolarSystem  extends SolarSystem {
      * @param day number of day from start day
      * @return WeatherType for the day
      */
-    private WeatherType getDayWeather(int day) {
+    public WeatherType getDayWeather(int day) {
         List<Angle> angles = getAngles(day);
         if (arePlanetsAlignWithSun(angles)) {
             return WeatherType.DROUGHT;
@@ -111,7 +113,7 @@ public class WeatherSolarSystem  extends SolarSystem {
     }
 
     /**
-     * Predicts to weather from initialDay to finalDay -1 for the system.
+     * Predicts to weather from initialDay to finalDay (without finalDay) for the system.
      *
      * @param initialDay number of day after start day when we want to start prediction
      * @param finalDay number of day after start day when we want to stop prediction

@@ -1,4 +1,4 @@
-package test;
+package test.java;
 
 import model.Galaxy.Planet.Planet;
 import org.junit.Before;

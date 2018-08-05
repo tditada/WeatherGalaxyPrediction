@@ -58,7 +58,7 @@ public class WeatherSolarSystem  extends SolarSystem {
         Line2D tomorrow = new Line2D.Double(coordinatesTomorrow.get(0), coordinatesTomorrow.get(2));
         int signTomorrow = tomorrow.relativeCCW(coordinatesToday.get(1));
 
-        return signTomorrow != signToday;
+        return signTomorrow == -1 * signToday;
     }
 
     /**

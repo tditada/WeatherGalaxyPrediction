@@ -1,4 +1,4 @@
-package test;
+package test.java;
 
 import model.Geometry.Angle;
 import org.junit.Test;

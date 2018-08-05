@@ -1,4 +1,4 @@
-package test;
+package test.java;
 
 // getWeatherPrediction
 // for private methods: https://stackoverflow.com/a/34658

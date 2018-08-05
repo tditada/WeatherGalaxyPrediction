@@ -13,7 +13,7 @@ public class Triangle2D {
     /**
      * Checks if point p is inside triangle using barycentric coordinates.
      *
-     * @param p Point2D to check
+     * @param p {@link Point2D} to check
      * @return true if point is inside triangle, false otherwise
      */
     public boolean isPointInTriangle(Point2D p) {

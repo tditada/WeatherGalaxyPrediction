@@ -22,7 +22,7 @@ public class Angle {
 
     /**
      * Check if angles has a 180 degrees difference
-     * @param angle angle to compare
+     * @param angle {@link Angle} to compare
      * @return true if the are align, false otherwise
      */
     public boolean isAlign(Angle angle) {

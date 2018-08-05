@@ -1,6 +1,7 @@
 package model.Galaxy.Planet;
 import model.Geometry.Angle;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 
 public class Planet implements Comparable<Planet>{
@@ -27,12 +28,12 @@ public class Planet implements Comparable<Planet>{
     /**
      * Get XY Coordinates for a specific day with sin and cos
      * @param day number of day from start day
-     * @return Point2D with X and Y coordinates at day
+     * @return {@link Point2D} with X and Y coordinates of the day
      */
     public Point2D getXYCoordinates(int day) {
         double angle = 90 - getAngularPosition(day).getAngle();
-        double x = Math.sin(Math.toRadians(angle)) * this.distanceSunInKm;
-        double y =  Math.cos(Math.toRadians(angle)) * this.distanceSunInKm;
+        double y = Math.sin(Math.toRadians(angle)) * this.distanceSunInKm;
+        double x =  Math.cos(Math.toRadians(angle)) * this.distanceSunInKm;
         return new Point2D.Double(x, y);
     }
 
@@ -60,6 +61,12 @@ public class Planet implements Comparable<Planet>{
     public Integer getDistanceSunInKm() {
         return distanceSunInKm;
     }
+
+    /**
+     * Get the planet name
+     * @return planet name
+     */
+    public String getName() { return name; }
 
     @Override
     public int compareTo(Planet planet) {

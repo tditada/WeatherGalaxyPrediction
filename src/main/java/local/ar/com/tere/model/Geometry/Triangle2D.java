@@ -1,4 +1,4 @@
-package model.Geometry;
+package local.ar.com.tere.model.Geometry;
 
 import java.awt.geom.Point2D;
 import java.util.List;

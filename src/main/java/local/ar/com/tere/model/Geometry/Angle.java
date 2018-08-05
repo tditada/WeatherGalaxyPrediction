@@ -1,4 +1,4 @@
-package model.Geometry;
+package local.ar.com.tere.model.Geometry;
 
 public class Angle {
 

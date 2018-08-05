@@ -1,4 +1,4 @@
-package model.Weather;
+package local.ar.com.tere.model.Weather;
 
 public enum WeatherType {
 

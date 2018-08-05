@@ -1,8 +1,8 @@
-package main.java.Main;
+package local.ar.com.tere.Main;
 
-import model.Galaxy.Planet.Planet;
-import model.Galaxy.SolarSystem.WeatherSolarSystem;
-import model.Weather.WeatherType;
+import local.ar.com.tere.model.Galaxy.Planet.Planet;
+import local.ar.com.tere.model.Galaxy.SolarSystem.WeatherSolarSystem;
+import local.ar.com.tere.model.Weather.WeatherType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class Main {
 }*/
 
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         BasicConfigurator.configure();
 
         List<Planet> planets = new ArrayList<>();
@@ -62,5 +62,5 @@ public class Main {
             response.put("max rain day", weatherAliens.getMaxRainDay());
             return response;
         });
-    }
+    }*/
 }

@@ -1,9 +1,9 @@
-package model.Galaxy.SolarSystem;
+package local.ar.com.tere.model.Galaxy.SolarSystem;
 
-import model.Galaxy.Planet.Planet;
-import model.Geometry.Angle;
-import model.Geometry.Triangle2D;
-import model.Weather.WeatherType;
+import local.ar.com.tere.model.Galaxy.Planet.Planet;
+import local.ar.com.tere.model.Geometry.Angle;
+import local.ar.com.tere.model.Geometry.Triangle2D;
+import local.ar.com.tere.model.Weather.WeatherType;
 
 import java.awt.geom.Line2D;
 import java.util.HashMap;

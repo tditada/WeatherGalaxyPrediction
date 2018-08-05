@@ -1,5 +1,5 @@
-package model.Galaxy.Planet;
-import model.Geometry.Angle;
+package local.ar.com.tere.model.Galaxy.Planet;
+import local.ar.com.tere.model.Geometry.Angle;
 
 import java.awt.*;
 import java.awt.geom.Point2D;

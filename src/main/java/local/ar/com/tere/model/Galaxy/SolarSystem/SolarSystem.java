@@ -1,7 +1,7 @@
-package model.Galaxy.SolarSystem;
+package local.ar.com.tere.model.Galaxy.SolarSystem;
 
-import model.Galaxy.Planet.Planet;
-import model.Geometry.Angle;
+import local.ar.com.tere.model.Galaxy.Planet.Planet;
+import local.ar.com.tere.model.Geometry.Angle;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;

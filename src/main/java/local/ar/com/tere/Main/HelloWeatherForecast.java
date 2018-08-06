@@ -60,10 +60,12 @@ public class HelloWeatherForecast implements SparkApplication {
                     int daysInYear = FullForecastWeatherSystem.getWeatherAliens().getMaxDaysInYear();
                     if ( day.equals("") || number < 0 || number > YEARS * daysInYear) {
                         response.put("error", "Parameter day is mandatory and needs to be a positive day number in the next 10 years");
+                        res.status(400);
                         return response;
                     }
                 } catch (NumberFormatException e) {
                     response.put("error", "Parameter day needs to be a number");
+                    res.status(400);
                     return response;
                 }
 

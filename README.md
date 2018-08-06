@@ -56,6 +56,7 @@ Example Error Response:
 
 - GET /weatherforecast
 
+Counts each type of weather for 10 years starting at day 0, and gets the day with maximum rain
 
 
 

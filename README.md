@@ -1,55 +1,61 @@
-appengine-skeleton
+Weather Galaxy Forecast
 ==================
 
-This is a generated application from the appengine-skeleton archetype.
+This is a project that infer the weather in a particular solar system for the next 10 years using some geometrical rules.
 
-See the [Google App Engine standard environment documentation][ae-docs] for more
-detailed instructions.
+The "weather solar system" is composed by three planets and a sun.
+In this project I am assuming the sun is always in the middle (0,0), days are discrete and planets are points in the space.
 
-[ae-docs]: https://cloud.google.com/appengine/docs/java/
+Rules:
 
+1 - When planets are all align including the sun, then the weather is drought.
+
+2 - When planets are all align without the sun, there are optimal pressure and temperature conditions.
+
+3 - When planets are not align they form a triangle. If the sun is inside this triangle then it rains.
+When the perimeter of this triangle is the max one, then that day they have the most rain.
+
+## How rules are checked
+
+1 - When all four are align the result of ANGLE % 180° is equal for all planets.
+
+2 - There are a number of ways to check these (area of the triangle equals 0, with slopes). But as days are discrete and we want to know if planets were align in any moment of a particular day, we draw a line between the closest and farthest planet for today and another line for tomorrow. If the middle planet change sides from this line, then they were align.
+
+3 - To calculate if the sun is in the middle of the triangle we use barometric coordinates. Basically checking if the sun position can be expressed with two of the vectors from the triangle sides.
+
+## Build With
 
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Maven](https://maven.apache.org/download.cgi) (at least 3.5)
-* [Google Cloud SDK](https://cloud.google.com/sdk/) (aka gcloud)
+* [Maven](https://maven.apache.org/download.cgi) 
+* [Google Cloud SDK](https://cloud.google.com/sdk/) 
+* [Objectify](https://github.com/objectify/) 
+* [Java Spark](http://sparkjava.com/) 
 
-## Setup
+## API
+App Engine API of the project with DataStore to save entities.
 
-    gcloud init
-    gcloud auth application-default login
+URL: https://weathergalaxyforecast.appspot.com/
 
-## Maven
-### Running locally
+Methods
 
-    mvn appengine:devserver
+  - GET /weather?day=[day]
 
-### Deploying
+Retrieves the weather of a specific number day. 
 
-    mvn appengine:update
 
-## Testing
+Example Response:
 
-    mvn verify
+    {"weather": "drought", "day": "0"}
+    
 
-As you add / modify the source code (`src/main/java/...`) it's very useful to add
-[unit testing](https://cloud.google.com/appengine/docs/java/tools/localunittesting)
-to (`src/main/test/...`).  The following resources are quite useful:
+Example Error Response:
 
-* [Junit4](http://junit.org/junit4/)
-* [Mockito](http://mockito.org/)
-* [Truth](http://google.github.io/truth/)
+    {"error": "Parameter day is mandatory and needs to be a positive day number in the next 10 years"}
+    
 
-## Updating to latest Artifacts
 
-An easy way to keep your projects up to date is to use the maven [Versions plugin][versions-plugin].
+- GET /weatherforecast
 
-    mvn versions:display-plugin-updates
-    mvn versions:display-dependency-updates
-    mvn versions:use-latest-versions
 
-Note - Be careful when changing `javax.servlet` as App Engine Standard uses 3.1 for Java 8, and 2.5
-for Java 7.
 
-Our usual process is to test, update the versions, then test again before committing back.
 
-[plugin]: http://www.mojohaus.org/versions-maven-plugin/

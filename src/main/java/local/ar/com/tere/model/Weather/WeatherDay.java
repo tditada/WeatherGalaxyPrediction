@@ -4,6 +4,9 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
+/**
+ * This class is for persistence of weather calculations in a data base
+ */
 @Entity
 public class WeatherDay {
     @Id String day;

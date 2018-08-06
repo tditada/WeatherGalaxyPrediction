@@ -63,5 +63,19 @@ public class SolarSystem {
         return coordinates;
     }
 
+    /**
+     * Get days in a year from the slowest planet in the system
+     * @return days in a year for slowest planet
+     */
+    public int getMaxDaysInYear() {
+        int maxDays = 0;
+        for (Planet planet : planets) {
+            if (planet.getDaysInYear() > maxDays) {
+                maxDays = planet.getDaysInYear();
+            }
+        }
+        return maxDays;
+    }
+
 
 }
